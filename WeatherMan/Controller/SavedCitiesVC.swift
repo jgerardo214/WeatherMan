@@ -10,7 +10,7 @@ import UIKit
 
 class SavedCitiesVC: UITableViewController {
     
-    
+    var weatherManager = WeatherManager()
     
     
     override func viewDidLoad() {

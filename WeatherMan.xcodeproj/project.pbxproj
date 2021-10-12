@@ -16,7 +16,6 @@
 		FD1663D52706E3A900046D55 /* WeatherMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD1663D32706E3A900046D55 /* WeatherMan.xcdatamodeld */; };
 		FD1663D72706E3AA00046D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1663D62706E3AA00046D55 /* Assets.xcassets */; };
 		FD1663DA2706E3AA00046D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1663D82706E3AA00046D55 /* LaunchScreen.storyboard */; };
-		FD1663E22706E5BF00046D55 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1663E12706E5BF00046D55 /* DetailVC.swift */; };
 		FD1663E42706E5DB00046D55 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1663E32706E5DB00046D55 /* WeatherVC.swift */; };
 		FD952FB527123FB400400463 /* SavedCitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD952FB427123FB400400463 /* SavedCitiesVC.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		FD1663D62706E3AA00046D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD1663D92706E3AA00046D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD1663DB2706E3AA00046D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD1663E12706E5BF00046D55 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		FD1663E32706E5DB00046D55 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		FD952FB427123FB400400463 /* SavedCitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCitiesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +70,6 @@
 		FD112D342706EA7F00409C2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FD1663E12706E5BF00046D55 /* DetailVC.swift */,
 				FD1663E32706E5DB00046D55 /* WeatherVC.swift */,
 				FD952FB427123FB400400463 /* SavedCitiesVC.swift */,
 			);
@@ -180,7 +177,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1663E22706E5BF00046D55 /* DetailVC.swift in Sources */,
 				FD1663E42706E5DB00046D55 /* WeatherVC.swift in Sources */,
 				FD112D3A2706EB8400409C2B /* WeatherData.swift in Sources */,
 				FD112D3C2706EBCF00409C2B /* WeatherManager.swift in Sources */,
