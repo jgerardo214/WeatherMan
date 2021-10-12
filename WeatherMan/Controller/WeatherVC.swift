@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreData
 
 class WeatherVC: UIViewController {
     
@@ -22,6 +23,8 @@ class WeatherVC: UIViewController {
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    var dataController: DataController!
+    //var fetchedResultsController:NSFetchedResultsController<City>!
     
     
     
@@ -39,6 +42,7 @@ class WeatherVC: UIViewController {
    
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
         
     }
     
