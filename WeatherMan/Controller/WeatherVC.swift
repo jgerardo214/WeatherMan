@@ -24,7 +24,7 @@ class WeatherVC: UIViewController {
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var dataController: DataController!
-    //var fetchedResultsController:NSFetchedResultsController<City>!
+    
     
     
     
