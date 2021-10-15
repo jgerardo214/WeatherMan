@@ -40,6 +40,7 @@ class DataController {
                 fatalError(error!.localizedDescription)
             }
             self.configureViewContext()
+            self.autoSaveViewContext()
             completion?()
         }
         
@@ -47,4 +48,23 @@ class DataController {
     }
     
    
+}
+
+
+
+extension DataController {
+    func autoSaveViewContext(interval:TimeInterval = 30) {
+        guard interval > 0 else {
+            print("error saving")
+            return
+        }
+        
+        if viewContext.hasChanges {
+            try? viewContext.save()
+        }
+        DispatchQueue.main.async {
+            self.autoSaveViewContext(interval: interval)
+        }
+        
+    }
 }

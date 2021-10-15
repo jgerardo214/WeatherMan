@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import CoreData
 
-class WeatherVC: UIViewController {
+class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
 
     @IBOutlet weak var searchText: UITextField!
@@ -24,6 +24,8 @@ class WeatherVC: UIViewController {
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var dataController: DataController!
+    var fetchedResultsController:NSFetchedResultsController<City>!
+    
     
     
     
@@ -38,12 +40,33 @@ class WeatherVC: UIViewController {
         
     }
     
+    func setUpFetchResultsController() {
+        let fetchRequest: NSFetchRequest<City> = City.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "cityName", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "city")
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+            if fetchedResultsController.fetchedObjects?.count == 0 {
+                print("No city found!")
+            } else {
+                let cities = fetchedResultsController.fetchedObjects!
+            }
+        } catch {
+            fatalError("The fetch could not be performed because of \(error.localizedDescription)")
+        }
+    }
+    
     
    
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        dataController.autoSaveViewContext()
         
-        
+    
     }
     
 
