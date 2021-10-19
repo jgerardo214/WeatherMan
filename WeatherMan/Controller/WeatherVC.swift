@@ -35,8 +35,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
         searchText.delegate = self
         weatherManager.delegate = self
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+
         
     }
     
@@ -60,11 +59,19 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
+    func saveCity() {
+        // add code here that will use core data to save the City to SavedCitiesVC and add it to the table view
+        
+        
+    }
+    
     
    
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        dataController.autoSaveViewContext()
+        
+        saveCity()
+        
         
     
     }

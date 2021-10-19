@@ -18,7 +18,9 @@ struct WeatherManager {
     
     var delegate: WeatherManagerDel?
     
+    
     func fetchWeather(cityName: String) {
+        let cityName = cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! 
         let urlStringWithCityName = "\(weatherURL)&q=\(cityName)"
         performRequest(with: urlStringWithCityName)
     }
