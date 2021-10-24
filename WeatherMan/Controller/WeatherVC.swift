@@ -30,6 +30,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchText.delegate = self
@@ -60,8 +61,10 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     func saveCity() {
-        // add code here that will use core data to save the City to SavedCitiesVC and add it to the table view
+        let city = cityLabel.text
         
+        // add code here that will use core data to save the City to SavedCitiesVC and add it to the table view
+       try? dataController.viewContext.save()
         
     }
     
@@ -70,8 +73,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         
-        saveCity()
-        
+    saveCity()
         
     
     }
@@ -103,6 +105,7 @@ extension WeatherVC: UITextFieldDelegate {
         }
         searchText.text = ""
     }
+
     
 }
 
