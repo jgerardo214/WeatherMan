@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        let navigationController = window?.rootViewController as? UINavigationController
-        let weatherViewController = navigationController?.topViewController as! WeatherVC
+        let navigationController = window?.rootViewController as? UITabBarController
+        let weatherViewController = navigationController?.viewControllers?[0] as! WeatherVC
         weatherViewController.dataController = dataController
         dataController.load()
         

@@ -24,6 +24,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var dataController: DataController!
+    var cities: [City] = []
     var fetchedResultsController:NSFetchedResultsController<City>!
     
     
@@ -61,10 +62,10 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     func saveCity() {
-        let city = cityLabel.text
         
         // add code here that will use core data to save the City to SavedCitiesVC and add it to the table view
-       try? dataController.viewContext.save()
+        setUpFetchResultsController()
+      
         
     }
     
@@ -153,5 +154,9 @@ extension WeatherVC: CLLocationManagerDelegate {
     }
     
     
+    
+}
+
+extension WeatherVC {
     
 }
