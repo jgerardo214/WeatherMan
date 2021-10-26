@@ -29,6 +29,7 @@ class SavedCitiesVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 print("No city found!")
             } else {
                 let cities = fetchedResultsController.fetchedObjects!
+                
             }
         } catch {
             fatalError("The fetch could not be performed because of \(error.localizedDescription)")
@@ -38,13 +39,14 @@ class SavedCitiesVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpFetchResultsController()
+        //setUpFetchResultsController()
         
         
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         
         
     }
@@ -55,6 +57,7 @@ class SavedCitiesVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CityCell
+        
         
         
         

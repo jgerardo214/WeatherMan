@@ -30,8 +30,6 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchText.delegate = self
@@ -54,29 +52,19 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
             if fetchedResultsController.fetchedObjects?.count == 0 {
                 print("No city found!")
             } else {
-                let cities = fetchedResultsController.fetchedObjects!
+                var cities = fetchedResultsController.fetchedObjects!
+                
+                
             }
         } catch {
             fatalError("The fetch could not be performed because of \(error.localizedDescription)")
         }
     }
     
-    func saveCity() {
-        
-        // add code here that will use core data to save the City to SavedCitiesVC and add it to the table view
-        setUpFetchResultsController()
-      
-        
-    }
-    
-    
-   
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        setUpFetchResultsController()
         
-    saveCity()
-        
-    
     }
     
 
