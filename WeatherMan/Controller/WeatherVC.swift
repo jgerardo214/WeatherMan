@@ -21,11 +21,13 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var saveButtpn: UIButton!
     
+    
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var dataController: DataController!
-    var cities: [City] = []
+    var cities: String = ""
     var fetchedResultsController:NSFetchedResultsController<City>!
+    var city: String?
     
     
     
@@ -53,6 +55,9 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
                 print("No city found!")
             } else {
                 var cities = fetchedResultsController.fetchedObjects!
+                for city in cities {
+                    cities.append(city)
+                }
                 
                 
             }
@@ -63,7 +68,9 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        setUpFetchResultsController()
+        let city = City(context: dataController.viewContext)
+        city.cityName = "\(city)"
+        try! dataController.viewContext.save()
         
     }
     
@@ -145,6 +152,4 @@ extension WeatherVC: CLLocationManagerDelegate {
     
 }
 
-extension WeatherVC {
-    
-}
+

@@ -12,6 +12,10 @@ class CityCell: UITableViewCell {
     
     @IBOutlet weak var cityNameCell: UILabel!
     
+    func insertData(model: City) {
+        cityNameCell.text = model.cityName
+    }
+    
     
     
 }

@@ -49,11 +49,9 @@ class DataController {
     
     func insertCity(cityName: String) {
         let city = City(context: persistantContainer.viewContext)
-        
         autoSaveViewContext()
     }
-    
-   
+        
 }
 
 
