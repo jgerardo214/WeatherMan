@@ -25,7 +25,6 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var dataController: DataController!
-    var cities: String = ""
     var fetchedResultsController:NSFetchedResultsController<City>!
     var city: String?
     
@@ -70,7 +69,8 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBAction func saveButtonPressed(_ sender: Any) {
         let city = City(context: dataController.viewContext)
         city.cityName = "\(city)"
-        try! dataController.viewContext.save()
+        dataController.autoSaveViewContext()
+        
         
     }
     
