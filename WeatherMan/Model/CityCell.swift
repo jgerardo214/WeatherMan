@@ -9,12 +9,15 @@ import UIKit
 
 class CityCell: UITableViewCell {
     
-    
-    @IBOutlet weak var cityNameCell: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
     
     func insertData(model: City) {
-        cityNameCell.text = model.cityName
+        cityLabel.text = model.cityName
+        tempLabel.text = "\(model.temperature)"
     }
+    
+    
     
     
     

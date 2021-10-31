@@ -25,6 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         weatherViewController.dataController = dataController
         dataController.load()
         
+        let savedVIewController = navigationController?.viewControllers?[1] as! SavedCitiesVC
+        savedVIewController.dataController = dataController
+        
+        
         
         
     
