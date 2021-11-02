@@ -35,10 +35,6 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFetchedResultsController()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         fetchCityInfo()
         
     }

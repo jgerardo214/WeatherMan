@@ -13,7 +13,7 @@ class CityCell: UITableViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     
     func insertData(model: City) {
-        cityLabel.text = "\(String(describing: model.cityName))"
+        cityLabel.text = "\(model.cityName)"
         tempLabel.text = "\(model.temperature)"
     }
     
