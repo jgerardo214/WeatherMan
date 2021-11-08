@@ -68,7 +68,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         let city = City(context: dataController.viewContext)
-        city.cityName = "\(city)"
+        city.cityName = searchText.text
         dataController.autoSaveViewContext()
         
         
