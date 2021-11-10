@@ -15,12 +15,12 @@ class CityCell: UITableViewCell {
     func insertData(model: City) {
         if cityLabel.text == nil {
             cityLabel.text = model.cityName
-        }
             tempLabel.text = "\(model.temperature)"
     }
     
     
     
     
+    }
     
 }
