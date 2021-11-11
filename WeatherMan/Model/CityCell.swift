@@ -13,10 +13,11 @@ class CityCell: UITableViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     
     func insertData(model: City) {
-        if cityLabel.text == nil {
+        if let text = cityLabel.text {
             cityLabel.text = model.cityName
-            tempLabel.text = "\(model.temperature)"
-    }
+        }
+        
+        tempLabel.text = "\(model.temperature)"
     
     
     
