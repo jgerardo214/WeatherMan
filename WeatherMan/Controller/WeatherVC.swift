@@ -67,8 +67,10 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
         let city = City(context: dataController.viewContext)
-        city.cityName = cityLabel.text
+        city.cityName = "New York"
+        city.temperature = 80
         dataController.autoSaveViewContext()
         
         
