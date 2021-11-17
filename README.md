@@ -9,5 +9,3 @@ cities.
 
 
  
-
-/Users/jonathangerardo/Desktop/Screen Shot 2021-11-16 at 9.44.01 PM.png
