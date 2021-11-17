@@ -72,7 +72,8 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         let city = City(context: dataController.viewContext)
-        city.cityName = self.city
+        city.cityName = "San Diego"
+        city.temperature = 80
         try? dataController.viewContext.save()
     
         
@@ -118,7 +119,7 @@ extension WeatherVC: WeatherManagerDel {
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
-            activityIndicator.hidesWhenStopped = true
+            activityIndicator.isHidden = true 
             
         }
        
