@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dhb-ZQ-Ija">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dhb-ZQ-Ija">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -91,6 +91,10 @@
                                     <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="typ-ud-M8c"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EHr-lj-CLv">
+                                <rect key="frame" x="190" y="549" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,10 +124,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="New City" id="kUD-X7-e5j"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="EHr-lj-CLv" id="vtk-iy-l8s"/>
                         <outlet property="cityLabel" destination="qnE-Jz-5mW" id="YGC-8v-7B4"/>
                         <outlet property="conditionImage" destination="MUp-o4-qbU" id="yck-5r-Wpx"/>
                         <outlet property="locationButton" destination="Wuv-Sp-ZPg" id="6pH-1Y-qM4"/>
-                        <outlet property="saveButtpn" destination="2B6-OD-arT" id="i0f-2e-tH7"/>
+                        <outlet property="saveButton" destination="2B6-OD-arT" id="i0f-2e-tH7"/>
                         <outlet property="searchButton" destination="cYM-9b-KxP" id="NHm-fR-0Wp"/>
                         <outlet property="searchText" destination="9Hs-3V-XCp" id="Vfc-UL-6jO"/>
                         <outlet property="tempLabel" destination="SLQ-XR-TSw" id="uDs-Yz-hjD"/>

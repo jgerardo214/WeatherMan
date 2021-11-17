@@ -19,8 +19,9 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var conditionImage: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
-    @IBOutlet weak var saveButtpn: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -36,6 +37,8 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
         searchText.delegate = self
         weatherManager.delegate = self
         locationManager.delegate = self
+        activityIndicator.isHidden = true
+        
 
         
     }
@@ -69,11 +72,9 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         let city = City(context: dataController.viewContext)
-        city.cityName = "New York"
-        city.temperature = 80
-        dataController.autoSaveViewContext()
-        
-        
+        city.cityName = self.city
+        try? dataController.viewContext.save()
+    
         
     }
     
@@ -113,12 +114,14 @@ extension WeatherVC: UITextFieldDelegate {
 extension WeatherVC: WeatherManagerDel {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
+            activityIndicator.hidesWhenStopped = true
             
         }
+       
     }
     
     func didFailWithError(error: Error) {
@@ -141,7 +144,11 @@ extension WeatherVC: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
+            
         }
         
         
