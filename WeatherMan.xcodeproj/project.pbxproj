@@ -35,6 +35,7 @@
 		FD1663D92706E3AA00046D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD1663DB2706E3AA00046D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD1663E32706E5DB00046D55 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
+		FD699CC62744CCFD00D1D9E8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD952FB427123FB400400463 /* SavedCitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCitiesVC.swift; sourceTree = "<group>"; };
 		FDAA4A7E27161C5600A44BA7 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		FDAA4A8027161D9600A44BA7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		FD1663BE2706E3A800046D55 = {
 			isa = PBXGroup;
 			children = (
+				FD699CC62744CCFD00D1D9E8 /* README.md */,
 				FD1663C92706E3A800046D55 /* WeatherMan */,
 				FD1663C82706E3A800046D55 /* Products */,
 			);
