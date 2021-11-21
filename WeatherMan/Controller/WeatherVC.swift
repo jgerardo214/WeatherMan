@@ -72,8 +72,8 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         let city = City(context: dataController.viewContext)
-        city.cityName = "San Diego"
-        city.temperature = 80
+        city.cityName = cityLabel.text
+        //city.temperature = tempLabel.text?.hashValue
         try? dataController.viewContext.save()
     
         
@@ -126,6 +126,7 @@ extension WeatherVC: WeatherManagerDel {
     }
     
     func didFailWithError(error: Error) {
+        
         print(error)
     }
     
@@ -158,8 +159,6 @@ extension WeatherVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
        print(error)
     }
-    
-    
     
 }
 

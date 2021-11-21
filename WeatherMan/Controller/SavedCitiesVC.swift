@@ -58,7 +58,7 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return fetchedResultsController.fetchedObjects?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
