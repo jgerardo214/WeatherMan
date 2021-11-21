@@ -73,7 +73,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         let city = City(context: dataController.viewContext)
         city.cityName = cityLabel.text
-        //city.temperature = tempLabel.text?.hashValue
+        city.temperature = "\(tempLabel.text)"
         try? dataController.viewContext.save()
     
         
