@@ -120,8 +120,7 @@ extension WeatherVC: WeatherManagerDel {
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
             activityIndicator.isHidden = true
-            
-            
+
         }
        
     }
@@ -151,7 +150,6 @@ extension WeatherVC: CLLocationManagerDelegate {
             activityIndicator.startAnimating()
             activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
-            
             
         } else {
             let alert = UIAlertController(title: "Error", message: "Network error or invalid city name", preferredStyle: .alert)

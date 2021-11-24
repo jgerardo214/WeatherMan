@@ -44,10 +44,11 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let weatherVC = storyboard?.instantiateViewController(withIdentifier: "WeatherVC") as? WeatherVC
 //        weatherVC?.city = fetchedResultsController.object(at: indexPath).cityName
+//        weatherVC?.city = fetchedResultsController.object(at: indexPath).temperature
 //        self.navigationController?.pushViewController(weatherVC!, animated: true)
         
         
-
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,6 +68,7 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,7 +80,15 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
         tableView.reloadData()
     }
     
-    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+         print("\(fetchedResultsController.object(at: indexPath))")
+          dataController.deleteCity(city: fetchedResultsController.object(at: indexPath))
+             fetchCityInfo()
+
+        }
+    }
     
     
     

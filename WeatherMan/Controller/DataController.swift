@@ -45,6 +45,11 @@ class DataController {
         
     }
     
+    func deleteCity(city: City) {
+        persistantContainer.viewContext.delete(city)
+        autoSaveViewContext()
+    }
+    
         
 }
 

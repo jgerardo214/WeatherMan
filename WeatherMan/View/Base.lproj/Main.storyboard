@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Hs-3V-XCp">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Hs-3V-XCp">
                                 <rect key="frame" x="58" y="76" width="284" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="gFZ-qt-h6i"/>
@@ -148,14 +148,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="jn1-fJ-2Eb" customClass="CityCell" customModule="WeatherMan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="37.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jn1-fJ-2Eb" id="cey-qy-PtN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsf-Wz-Vw2">
-                                            <rect key="frame" x="43" y="11" width="22.5" height="15.5"/>
+                                            <rect key="frame" x="43" y="11" width="174" height="14.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="48Q-V0-1Ar"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -168,13 +171,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="leading" secondItem="cey-qy-PtN" secondAttribute="leadingMargin" constant="23" id="0cH-Hu-GJN"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fsf-Wz-Vw2" secondAttribute="trailing" constant="20" symbolic="YES" id="NUq-5x-yUC"/>
-                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="centerY" secondItem="cey-qy-PtN" secondAttribute="centerY" id="VYh-gX-fUZ"/>
+                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="firstBaseline" secondItem="Bmr-O1-y1F" secondAttribute="baseline" id="9yF-jm-CjV"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Bmr-O1-y1F" secondAttribute="trailing" id="hX8-rL-2iI"/>
-                                        <constraint firstItem="Bmr-O1-y1F" firstAttribute="leading" secondItem="fsf-Wz-Vw2" secondAttribute="trailing" constant="250" id="jk7-GH-Nub"/>
-                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="top" secondItem="cey-qy-PtN" secondAttribute="topMargin" id="oqa-xJ-Ury"/>
-                                        <constraint firstItem="Bmr-O1-y1F" firstAttribute="firstBaseline" secondItem="fsf-Wz-Vw2" secondAttribute="firstBaseline" id="xFP-S8-H8A"/>
+                                        <constraint firstItem="Bmr-O1-y1F" firstAttribute="leading" secondItem="fsf-Wz-Vw2" secondAttribute="trailing" constant="98.5" id="iYg-Ik-l6c"/>
+                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="top" secondItem="cey-qy-PtN" secondAttribute="topMargin" id="jEa-kj-nNt"/>
+                                        <constraint firstItem="fsf-Wz-Vw2" firstAttribute="leading" secondItem="cey-qy-PtN" secondAttribute="leadingMargin" constant="23" id="spS-Ev-cA4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

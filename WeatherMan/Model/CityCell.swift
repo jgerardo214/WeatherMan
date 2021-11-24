@@ -16,8 +16,9 @@ class CityCell: UITableViewCell {
         if cityLabel.text != nil {
             cityLabel.text = model.cityName
         }
+        
         if tempLabel.text != nil {
-            tempLabel.text = "\(model.temperature)"
+            tempLabel.text = model.temperature
         }
         
     }
