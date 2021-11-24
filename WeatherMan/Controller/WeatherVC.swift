@@ -73,7 +73,7 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
         
         let city = City(context: dataController.viewContext)
         city.cityName = cityLabel.text
-        city.temperature = "\(tempLabel.text)"
+        city.temperature = tempLabel.text
         try? dataController.viewContext.save()
     
         
@@ -119,7 +119,8 @@ extension WeatherVC: WeatherManagerDel {
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
-            activityIndicator.isHidden = true 
+            activityIndicator.isHidden = true
+            
             
         }
        
@@ -127,7 +128,7 @@ extension WeatherVC: WeatherManagerDel {
     
     func didFailWithError(error: Error) {
         
-        print(error)
+        print(error.localizedDescription)
     }
     
 }
@@ -151,6 +152,11 @@ extension WeatherVC: CLLocationManagerDelegate {
             activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
             
+            
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Network error or invalid city name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
         
