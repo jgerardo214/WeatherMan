@@ -104,7 +104,6 @@ extension WeatherVC: UITextFieldDelegate {
         if let city = searchText.text {
             weatherManager.fetchWeather(cityName: city)
         }
-        searchText.text = ""
     }
 
     
