@@ -150,12 +150,7 @@ extension WeatherVC: CLLocationManagerDelegate {
             activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
             
-        } else {
-            let alert = UIAlertController(title: "Error", message: "Network error or invalid city name", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
         }
-        
         
     }
     
