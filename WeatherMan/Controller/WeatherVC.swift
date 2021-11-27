@@ -147,18 +147,20 @@ extension WeatherVC: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-//        DispatchQueue.main.async {
-//            let alert = UIAlertController(title: "Error", message: "Network failure! Please check your internet connection", preferredStyle: UIAlertController.Style.alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//            print(error)
-//        }
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: "Network failure! Please check your internet connection", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            print(error.localizedDescription)
+        }
        
     
     }
