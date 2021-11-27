@@ -42,10 +42,10 @@ class SavedCitiesVC: UITableViewController, NSFetchedResultsControllerDelegate  
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let weatherVC = storyboard?.instantiateViewController(withIdentifier: "WeatherVC") as? WeatherVC
-//        weatherVC?.city = fetchedResultsController.object(at: indexPath).cityName
-//        weatherVC?.city = fetchedResultsController.object(at: indexPath).temperature
-//        self.navigationController?.pushViewController(weatherVC!, animated: true)
+        let weatherVC = storyboard?.instantiateViewController(withIdentifier: "WeatherVC") as? WeatherVC
+        weatherVC?.city = fetchedResultsController.object(at: indexPath).cityName
+        weatherVC?.city = fetchedResultsController.object(at: indexPath).temperature
+        self.navigationController?.pushViewController(weatherVC!, animated: true)
         
         
         

@@ -12,7 +12,7 @@ import CoreData
 
 class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
-
+    
     @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
@@ -20,8 +20,8 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var conditionImage: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -29,19 +29,15 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     var fetchedResultsController:NSFetchedResultsController<City>!
     var city: String?
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchText.delegate = self
         weatherManager.delegate = self
         locationManager.delegate = self
         activityIndicator.isHidden = true
-        
-
-        
     }
+    
+    
     
     func setUpFetchResultsController() {
         let fetchRequest: NSFetchRequest<City> = City.fetchRequest()
@@ -60,8 +56,6 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
                 for city in cities {
                     cities.append(city)
                 }
-                
-                
             }
         } catch {
             fatalError("The fetch could not be performed because of \(error.localizedDescription)")
@@ -70,17 +64,11 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
     
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        
         let city = City(context: dataController.viewContext)
         city.cityName = cityLabel.text
         city.temperature = tempLabel.text
         try? dataController.viewContext.save()
-    
-        
     }
-    
-
-    
 }
 
 // MARK: - UITextFieldDelegate
@@ -105,7 +93,7 @@ extension WeatherVC: UITextFieldDelegate {
             weatherManager.fetchWeather(cityName: city)
         }
     }
-
+    
     
 }
 
@@ -119,12 +107,20 @@ extension WeatherVC: WeatherManagerDel {
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
             activityIndicator.isHidden = true
-
+            
         }
-       
+        
     }
     
     func didFailWithError(error: Error) {
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: "Enter a valid city!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
         
         print(error.localizedDescription)
     }
@@ -137,7 +133,7 @@ extension WeatherVC: CLLocationManagerDelegate {
     
     @IBAction func locationButtonPressed(_ sender: Any) {
         locationManager.requestLocation()
-       
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -149,16 +145,23 @@ extension WeatherVC: CLLocationManagerDelegate {
             activityIndicator.startAnimating()
             activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
-            
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-       print(error)
+        let alert = UIAlertController(title: "Error", message: "Network failure! Please check your internet connection", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        print(error)
     }
     
 }
+
+//TODO: Make an alert that will alert the user in case of a network failure
+//TODO: Figure out a way to add an activity indicator to work when making a network request
+
+
+
 
 
 
