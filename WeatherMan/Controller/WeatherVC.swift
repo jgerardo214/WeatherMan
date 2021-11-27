@@ -106,13 +106,17 @@ extension WeatherVC: UITextFieldDelegate {
 
 extension WeatherVC: WeatherManagerDel {
     
+    fileprivate func configureActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.hidesWhenStopped = true
+    }
+    
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async { [self] in
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidesWhenStopped = true 
+            configureActivityIndicator()
         }
     }
     
@@ -122,6 +126,7 @@ extension WeatherVC: WeatherManagerDel {
             let alert = UIAlertController(title: "Error", message: "Enter a valid city!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            self.configureActivityIndicator()
         }
         print(error.localizedDescription)
     }
