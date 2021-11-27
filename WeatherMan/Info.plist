@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to get local weather</string>
+	<string>We need your location to get local weather for the app to work</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>CFBundleShortVersionString</key>

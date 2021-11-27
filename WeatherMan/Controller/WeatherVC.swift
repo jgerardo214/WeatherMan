@@ -91,7 +91,9 @@ extension WeatherVC: UITextFieldDelegate {
         // Use search text.text to get weather for city
         if let city = searchText.text {
             weatherManager.fetchWeather(cityName: city)
+            
         }
+       
     }
     
     
@@ -106,10 +108,7 @@ extension WeatherVC: WeatherManagerDel {
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
-            activityIndicator.isHidden = true
-            
         }
-        
     }
     
     func didFailWithError(error: Error) {
@@ -141,24 +140,24 @@ extension WeatherVC: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
-            activityIndicator.stopAnimating()
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let alert = UIAlertController(title: "Error", message: "Network failure! Please check your internet connection", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
         print(error)
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController(title: "Error", message: "Network failure! Please check your internet connection", preferredStyle: UIAlertController.Style.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            print(error)
+//        }
+       
+    
     }
     
 }
 
-//TODO: Make an alert that will alert the user in case of a network failure
-//TODO: Figure out a way to add an activity indicator to work when making a network request
 
 
 
