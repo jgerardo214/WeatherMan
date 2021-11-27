@@ -75,7 +75,10 @@ class WeatherVC: UIViewController, NSFetchedResultsControllerDelegate {
 
 extension WeatherVC: UITextFieldDelegate {
     @IBAction func searchButtonPressed(_ sender: Any) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         searchText.endEditing(true)
+        activityIndicator.hidesWhenStopped = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -108,6 +111,8 @@ extension WeatherVC: WeatherManagerDel {
             self.tempLabel.text = weather.tempString
             self.conditionImage.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.city
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true 
         }
     }
     
@@ -118,9 +123,6 @@ extension WeatherVC: WeatherManagerDel {
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
-        
         print(error.localizedDescription)
     }
     
